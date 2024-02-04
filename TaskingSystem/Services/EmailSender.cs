@@ -9,8 +9,8 @@ namespace TaskingSystem.Services
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            var fromMail = "youssef.mohamed.net.eg@gmail.com";
-            var fromPassword = "bccttblcwpxizydt";
+            var fromMail = "SenderEmail";
+            var fromPassword = "SenderEmailPassword";
 
             var message = new MailMessage();
             message.From = new MailAddress(fromMail);
