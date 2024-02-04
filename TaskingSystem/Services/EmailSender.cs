@@ -9,8 +9,8 @@ namespace TaskingSystem.Services
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            var fromMail = "SenderEmail";
-            var fromPassword = "SenderEmailPassword";
+            var fromMail = "EmailSender";
+            var fromPassword = "EmailSenderPassword";
 
             var message = new MailMessage();
             message.From = new MailAddress(fromMail);
@@ -18,7 +18,6 @@ namespace TaskingSystem.Services
             message.To.Add(email);
             var templatePath = Path.GetFullPath("wwwroot/StaticHTML/MailTemplate.html");
             message.Body = File.ReadAllText(templatePath).ToString().Replace("ID-Confirm-1111-3333", htmlMessage.ToString());
-            // message.Body = _email.Replace("ID-Confirm-1111-3333", htmlMessage.ToString());
             message.IsBodyHtml = true;
 
             var smtpClient = new SmtpClient("smtp.gmail.com")

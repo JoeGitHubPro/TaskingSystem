@@ -118,7 +118,7 @@ namespace TaskingSystem.Areas.Identity.Pages.Account.Manage
             {
                 var file = Request.Form.Files.FirstOrDefault();
 
-                //check file size and extension
+                //TODO check file size and extension
 
                 using (var dataStream = new MemoryStream())
                 {

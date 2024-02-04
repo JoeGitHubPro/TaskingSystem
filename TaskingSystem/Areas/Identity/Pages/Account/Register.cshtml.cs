@@ -72,6 +72,12 @@ namespace TaskingSystem.Areas.Identity.Pages.Account
             [Display(Name = "LastName")]
             public string LastName { get; set; }
 
+            [Display(Name = "UserName")]
+            public string UserName { get; set; }
+
+            [Display(Name = "PhoneNumber")]
+            public string PhoneNumber { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -81,6 +87,8 @@ namespace TaskingSystem.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
+            [Display(Name = "ProfilePicture")]
+            public byte[] ProfilePicture { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -118,8 +126,30 @@ namespace TaskingSystem.Areas.Identity.Pages.Account
                 user.FirstName = Input.FirstName;
                 user.LastName = Input.LastName;
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                if (Input.UserName != null)
+                    user.UserName = Input.UserName;
+                else
+                    //TODO Input.Email trim it before @ character
+                    await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+
+                user.PhoneNumber = Input?.PhoneNumber;
+
+                if (Request.Form.Files.Count > 0)
+                {
+                    var file = Request.Form.Files.FirstOrDefault();
+
+                    //TODO check file size and extension
+
+                    using (var dataStream = new MemoryStream())
+                    {
+                        await file.CopyToAsync(dataStream);
+                        user.ProfilePicture = dataStream.ToArray();
+                    }
+
+                }
+
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
