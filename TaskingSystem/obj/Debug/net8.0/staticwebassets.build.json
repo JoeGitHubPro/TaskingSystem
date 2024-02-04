@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RL1oxHKe2MV2sUFOqV5zMfrSErlJCRmYe/pwGgqusrc=",
+  "Hash": "44Cs09abQ2CttZ1TbWMDCJq9ieH1xn4AjT/PHKvuZyU=",
   "Source": "TaskingSystem",
   "BasePath": "_content/TaskingSystem",
   "Mode": "Default",
@@ -2466,6 +2466,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\StaticHTML\\MailTemplate.html",
+      "SourceId": "TaskingSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\",
+      "BasePath": "_content/TaskingSystem",
+      "RelativePath": "StaticHTML/MailTemplate.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\StaticHTML\\MailTemplate.html"
     }
   ]
 }

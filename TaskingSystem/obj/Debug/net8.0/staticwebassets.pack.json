@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\TaskingSystem.bundle.scp.css"
     },
     {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\StaticHTML\\MailTemplate.html",
+      "PackagePath": "staticwebassets\\StaticHTML\\MailTemplate.html"
+    },
+    {
       "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },

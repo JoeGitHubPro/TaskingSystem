@@ -7,8 +7,9 @@
 <h1>Users</h1>
 <a class="btn btn-primary" asp-action="Add">Add User</a>
 
-<div id="alert" class="alert alert-success mt-4 d-none" role="alert">
-    User deleted successfully!
+<div id="alert" class="alert alert-success alert-dismissible mt-4 d-none" role="alert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    Thank you for confirming your email.
 </div>
 
 <table class="table table-striped mt-6">
@@ -74,7 +75,7 @@
                                 error: function () {
                                     alert('someting went wrong')
                                 }
-                                       
+
                             };
 
                             $.ajax(settings).done(function (response) {
