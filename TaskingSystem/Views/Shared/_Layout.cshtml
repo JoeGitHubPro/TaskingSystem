@@ -25,7 +25,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        @if (User.IsInRole("Admin"))
+                        @if (User.IsInRole(Roles.SuperAdmin))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" asp-controller="#" asp-action="#" role="button" aria-haspopup="true" aria-expanded="false">Users Control</a>

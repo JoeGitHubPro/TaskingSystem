@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TaskingSystem.Models;
@@ -7,6 +8,7 @@ using TaskingSystem.ViewModels;
 
 namespace TaskingSystem.Controllers
 {
+    [Authorize(Roles = Roles.SuperAdmin)]
     public class UsersController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;

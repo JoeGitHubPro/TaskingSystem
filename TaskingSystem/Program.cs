@@ -40,6 +40,21 @@ namespace TaskingSystem
 
             var app = builder.Build();
 
+            //Database Initialization 
+            using (var scope = builder.Services.BuildServiceProvider().CreateAsyncScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+                if (context.Database.GetPendingMigrations().Any())
+                    context.Database.Migrate();
+
+                Initialization initialize = new Initialization(context, builder.Configuration);
+
+                initialize.InitializeRoles().Wait();
+                initialize.InitializeUsers().Wait();
+            }
+
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

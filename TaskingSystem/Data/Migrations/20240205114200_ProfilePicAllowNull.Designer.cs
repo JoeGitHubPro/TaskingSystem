@@ -12,8 +12,8 @@ using TaskingSystem.Data;
 namespace TaskingSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240131132402_NewAdmin")]
-    partial class NewAdmin
+    [Migration("20240205114200_ProfilePicAllowNull")]
+    partial class ProfilePicAllowNull
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -211,7 +211,6 @@ namespace TaskingSystem.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<byte[]>("ProfilePicture")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("SecurityStamp")
