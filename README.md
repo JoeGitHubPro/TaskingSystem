@@ -30,21 +30,9 @@ Here're some of the project's best features:
 https://github.com/JoeGitHubPro/TaskingSystem/releases/tag/V1.0.0
 ```
 
-<p>2. Set Email Confirmation Sender Settings in services/EmailSender.cs</p>
+<p>2. Go Instruction on this release</p>
 
-<p>3. set email</p>
-
-```
-  var fromMail = "SenderEmail"; 
-```
-
-<p>4. set password</p>
-
-```
-  var fromPassword = "SenderEmailPassword";
-```
-
-<p>5. Run Application</p>
+<p>3. Run Application</p>
 
 <h2>🍰 Contribution Guidelines:</h2>
 
