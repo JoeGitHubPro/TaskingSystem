@@ -9,8 +9,8 @@ namespace TaskingSystem.Services
 
         public async Task SendEmailAsync(string email, string subject, string htmlMessage)
         {
-            var fromMail = "EmailSender";
-            var fromPassword = "EmailSenderPassword";
+            var fromMail = "SenderEmail";
+            var fromPassword = "SenderEmailPassword";
 
             var message = new MailMessage();
             message.From = new MailAddress(fromMail);
@@ -27,7 +27,7 @@ namespace TaskingSystem.Services
                 EnableSsl = true
             };
 
-            smtpClient.Send(message);
+            await smtpClient.SendMailAsync(message);
         }
     }
 }
