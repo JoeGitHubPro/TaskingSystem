@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "44Cs09abQ2CttZ1TbWMDCJq9ieH1xn4AjT/PHKvuZyU=",
+  "Hash": "nDGEssgqadHSjTbJlzBkCrdCXGkgeq1fxWAZoeDz1AQ=",
   "Source": "TaskingSystem",
   "BasePath": "_content/TaskingSystem",
   "Mode": "Default",
@@ -1309,12 +1309,12 @@
       "OriginalItemSpec": "wwwroot\\images\\avatar-male.jpg"
     },
     {
-      "Identity": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\profile-pic.png",
+      "Identity": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\Congratulations, Class of 2025!.png",
       "SourceId": "TaskingSystem",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\",
       "BasePath": "_content/TaskingSystem",
-      "RelativePath": "images/profile-pic.png",
+      "RelativePath": "images/Congratulations, Class of 2025!.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1325,15 +1325,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\profile-pic.png"
+      "OriginalItemSpec": "wwwroot\\images\\Congratulations, Class of 2025!.png"
     },
     {
-      "Identity": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\standerd.png",
+      "Identity": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\Tasking.png",
       "SourceId": "TaskingSystem",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\",
       "BasePath": "_content/TaskingSystem",
-      "RelativePath": "images/standerd.png",
+      "RelativePath": "images/Tasking.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1344,7 +1344,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\standerd.png"
+      "OriginalItemSpec": "wwwroot\\images\\Tasking.png"
     },
     {
       "Identity": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\js\\bootbox.js\\bootbox.min.js",

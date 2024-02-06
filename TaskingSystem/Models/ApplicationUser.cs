@@ -11,5 +11,8 @@ namespace TaskingSystem.Models
         public string LastName { get; set; }
 
         public byte[]? ProfilePicture { get; set; }
+
+        public ICollection<Course> Courses { get; set; }
     }
 }
+

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskingSystem.Data;
 
@@ -11,9 +12,11 @@ using TaskingSystem.Data;
 namespace TaskingSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240206104416_designAssignmentsTables")]
+    partial class designAssignmentsTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -302,11 +305,9 @@ namespace TaskingSystem.Data.Migrations
 
                     b.Property<string>("ProfessorId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CourseCode");
-
-                    b.HasIndex("ProfessorId");
 
                     b.ToTable("Courses");
                 });
@@ -415,17 +416,6 @@ namespace TaskingSystem.Data.Migrations
                     b.Navigation("Professor");
                 });
 
-            modelBuilder.Entity("TaskingSystem.Models.Course", b =>
-                {
-                    b.HasOne("TaskingSystem.Models.ApplicationUser", "Professor")
-                        .WithMany("Courses")
-                        .HasForeignKey("ProfessorId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Professor");
-                });
-
             modelBuilder.Entity("TaskingSystem.Models.StudentsCourses", b =>
                 {
                     b.HasOne("TaskingSystem.Models.Course", "Course")
@@ -443,11 +433,6 @@ namespace TaskingSystem.Data.Migrations
                     b.Navigation("Course");
 
                     b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("TaskingSystem.Models.ApplicationUser", b =>
-                {
-                    b.Navigation("Courses");
                 });
 
             modelBuilder.Entity("TaskingSystem.Models.Course", b =>

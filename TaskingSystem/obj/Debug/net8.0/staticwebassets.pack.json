@@ -21,16 +21,16 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\Congratulations, Class of 2025!.png",
+      "PackagePath": "staticwebassets\\images\\Congratulations, Class of 2025!.png"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\Tasking.png",
+      "PackagePath": "staticwebassets\\images\\Tasking.png"
+    },
+    {
       "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\avatar-male.jpg",
       "PackagePath": "staticwebassets\\images\\avatar-male.jpg"
-    },
-    {
-      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\profile-pic.png",
-      "PackagePath": "staticwebassets\\images\\profile-pic.png"
-    },
-    {
-      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\standerd.png",
-      "PackagePath": "staticwebassets\\images\\standerd.png"
     },
     {
       "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\js\\bootbox.js\\bootbox.min.js",
