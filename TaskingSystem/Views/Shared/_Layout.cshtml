@@ -19,21 +19,42 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+@*                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li> *@
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="AssignedTasks" asp-action="Index">Assigned Tasks</a>
                         </li>
-                        @if (User.IsInRole(Roles.SuperAdmin))
+
+                        @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" asp-controller="#" asp-action="#" role="button" aria-haspopup="true" aria-expanded="false">Users Control</a>
-                                <div class="dropdown-menu">
-                                    <a class="nav-link text-light" asp-controller="Roles" asp-action="Index">Manage Roles</a>
-                                    <a class="nav-link text-light" asp-controller="Users" asp-action="Index">Manage Users</a>
-                                </div>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="CoursesRegistration" asp-action="Index">Courses Registration</a>
+                            </li>
+                            if (User.IsInRole(Roles.Manger) || User.IsInRole(Roles.Admin) || User.IsInRole(Roles.SuperAdmin))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-area="" asp-controller="AssignmentHeadLines" asp-action="Index">Assignment Head Lines</a>
+                                </li>
+                            }
+                            if (User.IsInRole(Roles.SuperAdmin))
+                            {
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" asp-controller="#" asp-action="#" role="button" aria-haspopup="true" aria-expanded="false">Users Control</a>
+                                    <div class="dropdown-menu">
+                                        <a class="nav-link text-light" asp-controller="Roles" asp-action="Index">Manage Roles</a>
+                                        <a class="nav-link text-light" asp-controller="Users" asp-action="Index">Manage Users</a>
+                                    </div>
+                                </li>
+                            }
                         }
 
 
@@ -43,7 +64,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container mt-4">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

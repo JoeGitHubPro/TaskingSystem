@@ -7,10 +7,10 @@
         public string ProfessorId { get; set; }
 
         // Navigation property
-        public ICollection<AssignmentHeadLine> AssignmentHeadLines { get; set; }
-        public ICollection<StudentsCourses> StudentsCourses { get; set; }
+        public ICollection<AssignmentHeadLine>? AssignmentHeadLines { get; set; }
+        public ICollection<StudentsCourses>? StudentsCourses { get; set; }
 
-        public ApplicationUser Professor { get; set; }
+        public ApplicationUser? Professor { get; set; }
 
     }
 }

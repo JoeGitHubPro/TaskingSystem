@@ -1,0 +1,42 @@
+﻿@model TaskingSystem.Models.AssignmentHeadLine
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AssignmentHeadLine</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AssignmentName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AssignmentName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AssignmentDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AssignmentDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Course)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Professor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Professor.UserName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@Model?.AssignmentId">Edit</a> |
+    <a class="btn btn-link" asp-action="Index">Back to List</a>
+</div>

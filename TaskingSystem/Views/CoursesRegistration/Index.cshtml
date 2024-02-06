@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TaskingSystem.Models.StudentsCourses>
+
+@{
+    ViewData["Title"] = "Courses Registration";
+}
+
+<h1>Courses Registration</h1>
+
+<p>
+    <a class=" btn btn-primary mt-4" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseCode)
+            </td>
+            <td>
+                   
+                    @Html.ActionLink("Delete", "Delete", new { CourseCode = item.CourseCode, StudentId = item.StudentId }, new Dictionary<string, object> { { "class", " btn btn-danger " } })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

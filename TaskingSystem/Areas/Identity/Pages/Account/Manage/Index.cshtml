@@ -41,9 +41,8 @@
                     <input type="file"
                            accept="image/*"
                            asp-for="Input.ProfilePicture"
-                           class="custom-file-input"
+                           class="form-control"
                            onchange="document.getElementById('profilePicture').src = window.URL.createObjectURL(this.files[0])" />
-                    <label class="custom-file-label" asp-for="Input.ProfilePicture">Choose picture...</label>
                     <span asp-validation-for="Input.ProfilePicture" class="text-danger"></span>
                 </div>
             </div>

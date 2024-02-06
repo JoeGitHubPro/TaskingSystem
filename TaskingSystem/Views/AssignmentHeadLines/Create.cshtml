@@ -1,0 +1,49 @@
+﻿@model TaskingSystem.Models.AssignmentHeadLine
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Assignment Head Line</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mt-4">
+                <label asp-for="AssignmentName" class="control-label"></label>
+                <input asp-for="AssignmentName" class="form-control mt-2" />
+                <span asp-validation-for="AssignmentName" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <label asp-for="AssignmentDate" class="control-label"></label>
+
+                 <input asp-for="AssignmentDate" class="form-control mt-2" />
+                <small id="emailHelp" class="form-text text-muted"> let this field empty to set current time.</small>
+
+                <span asp-validation-for="AssignmentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <label asp-for="ProfessorId" class="control-label">Professor</label>
+                <select asp-for="ProfessorId" class="form-control mt-2" asp-items="ViewBag.ProfessorUserName"></select>
+            </div>
+            <div class="form-group mt-4">
+                <label asp-for="CourseCode" class="control-label"></label>
+                <select asp-for="CourseCode" class="form-control mt-2" asp-items="ViewBag.CourseCode"></select>
+            </div>
+            <div class="form-group mt-4">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-link mt-4" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

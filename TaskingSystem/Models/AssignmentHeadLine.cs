@@ -9,7 +9,7 @@
         public string CourseCode { get; set; }
 
         // Navigation properties
-        public Course Course { get; set; }
-        public ApplicationUser Professor { get; set; }
+        public Course? Course { get; set; }
+        public ApplicationUser? Professor { get; set; }
     }
 }

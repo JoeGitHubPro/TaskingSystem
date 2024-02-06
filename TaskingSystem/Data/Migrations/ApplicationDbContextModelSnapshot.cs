@@ -256,7 +256,7 @@ namespace TaskingSystem.Data.Migrations
 
                     b.HasIndex("AssignedTaskStudentId");
 
-                    b.ToTable("AssignedTasks");
+                    b.ToTable("AssignedTasks", (string)null);
                 });
 
             modelBuilder.Entity("TaskingSystem.Models.AssignmentHeadLine", b =>
@@ -288,7 +288,7 @@ namespace TaskingSystem.Data.Migrations
 
                     b.HasIndex("ProfessorId");
 
-                    b.ToTable("AssignmentHeadLines");
+                    b.ToTable("AssignmentHeadLines", (string)null);
                 });
 
             modelBuilder.Entity("TaskingSystem.Models.Course", b =>
@@ -308,7 +308,7 @@ namespace TaskingSystem.Data.Migrations
 
                     b.HasIndex("ProfessorId");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("TaskingSystem.Models.StudentsCourses", b =>
@@ -323,7 +323,7 @@ namespace TaskingSystem.Data.Migrations
 
                     b.HasIndex("CourseCode");
 
-                    b.ToTable("StudentsCourses");
+                    b.ToTable("StudentsCourses", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
