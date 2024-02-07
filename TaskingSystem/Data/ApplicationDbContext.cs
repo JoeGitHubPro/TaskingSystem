@@ -28,10 +28,17 @@ namespace TaskingSystem.Data
             builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
             builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
 
+
+            builder.Entity<AssignedTask>()
+                .Property(a => a.AssignedTaskId)
+                .ValueGeneratedOnAdd()
+            .UseIdentityColumn(1, 1);
+
+
             builder.Entity<AssignedTask>()
           .HasOne(a => a.AssignmentHeadLine)
           .WithMany()
-          .HasForeignKey(a => a.AssignedTaskId)
+          .HasForeignKey(a => a.TaskId)
           .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<AssignedTask>()
@@ -39,6 +46,7 @@ namespace TaskingSystem.Data
                 .WithMany()
                 .HasForeignKey(a => a.AssignedTaskStudentId)
                 .OnDelete(DeleteBehavior.NoAction);
+
 
             builder.Entity<AssignmentHeadLine>()
                 .HasKey(a => a.AssignmentId);
@@ -79,6 +87,8 @@ namespace TaskingSystem.Data
                 .WithMany(c => c.StudentsCourses)
                 .HasForeignKey(sc => sc.CourseCode)
                 .OnDelete(DeleteBehavior.Cascade);
+
+
 
         }
     }

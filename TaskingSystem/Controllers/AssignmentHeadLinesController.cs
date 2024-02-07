@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TaskingSystem.Data;
@@ -9,10 +10,12 @@ namespace TaskingSystem.Controllers
     public class AssignmentHeadLinesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public AssignmentHeadLinesController(ApplicationDbContext context)
+        public AssignmentHeadLinesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: AssignmentHeadLines
@@ -43,10 +46,16 @@ namespace TaskingSystem.Controllers
         }
 
         // GET: AssignmentHeadLines/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["CourseCode"] = new SelectList(_context.Courses, "CourseCode", "CourseCode");
-            ViewData["ProfessorUserName"] = new SelectList(_context.Users, "UserName", "UserName");
+            var usersWithPermission = await _userManager.GetUsersInRoleAsync(Roles.Manger);
+            // Then get a list of the ids of these users
+            var idsWithPermission = usersWithPermission.Select(u => u.Id);
+            // Now get the users in our database with the same ids
+            var users = await _context.Users.Where(u => idsWithPermission.Contains(u.Id)).ToListAsync();
+
+            ViewData["CourseCode"] = new SelectList(_context.Courses, "CourseCode", "CourseName");
+            ViewData["ProfessorId"] = new SelectList(users, "Id", "UserName");
             return View();
         }
 
@@ -57,8 +66,6 @@ namespace TaskingSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AssignmentId,AssignmentName,AssignmentDate,ProfessorId,CourseCode")] AssignmentHeadLine assignmentHeadLine)
         {
-            assignmentHeadLine.ProfessorId = await _context.Users.Where(a => a.UserName == assignmentHeadLine.ProfessorId).Select(a => a.Id).AsNoTracking().SingleOrDefaultAsync();
-
             if (assignmentHeadLine.AssignmentDate is null)
                 assignmentHeadLine.AssignmentDate = DateTime.UtcNow.AddHours(2);
 
@@ -69,7 +76,7 @@ namespace TaskingSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CourseCode"] = new SelectList(_context.Courses, "CourseCode", "CourseCode", assignmentHeadLine.CourseCode);
-            ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "Id", assignmentHeadLine.ProfessorId);
+            ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "UserName", assignmentHeadLine.ProfessorId);
             return View(assignmentHeadLine);
         }
 
@@ -87,7 +94,7 @@ namespace TaskingSystem.Controllers
                 return NotFound();
             }
             ViewData["CourseCode"] = new SelectList(_context.Courses, "CourseCode", "CourseCode", assignmentHeadLine.CourseCode);
-            ViewData["ProfessorUserName"] = new SelectList(_context.Users, "UserName", "UserName", assignmentHeadLine.ProfessorId);
+            ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "UserName", assignmentHeadLine.ProfessorId);
             return View(assignmentHeadLine);
         }
 
@@ -98,7 +105,6 @@ namespace TaskingSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("AssignmentId,AssignmentName,AssignmentDate,ProfessorId,CourseCode")] AssignmentHeadLine assignmentHeadLine)
         {
-            assignmentHeadLine.ProfessorId = await _context.Users.Where(a => a.UserName == assignmentHeadLine.ProfessorId).Select(a => a.Id).AsNoTracking().SingleOrDefaultAsync();
 
             if (id != assignmentHeadLine.AssignmentId)
             {
@@ -126,7 +132,7 @@ namespace TaskingSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CourseCode"] = new SelectList(_context.Courses, "CourseCode", "CourseCode", assignmentHeadLine.CourseCode);
-            ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "Id", assignmentHeadLine.ProfessorId);
+            ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "UserName", assignmentHeadLine.ProfessorId);
             return View(assignmentHeadLine);
         }
 

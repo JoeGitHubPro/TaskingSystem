@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TaskingSystem.Data;
@@ -6,6 +7,7 @@ using TaskingSystem.Models;
 
 namespace TaskingSystem.Controllers
 {
+    [Authorize]
     public class CoursesRegistrationController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -18,17 +20,23 @@ namespace TaskingSystem.Controllers
         // GET: CoursesRegistration
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.StudentsCourses.Include(s => s.Course).Include(s => s.Student);
+            if (User.IsInRole(Roles.SuperAdmin))
+            {
+                var Context = await _context.StudentsCourses.Include(s => s.Course).Include(s => s.Student).ToListAsync();
+                return View(Context);
+            }
+            var userId = await _context.Users.Where(a => a.UserName == User.Identity.Name).Select(a => a.Id).SingleOrDefaultAsync();
+            var applicationDbContext = _context.StudentsCourses.Where(a => a.StudentId == userId).Include(s => s.Course).Include(s => s.Student);
             return View(await applicationDbContext.ToListAsync());
         }
 
-
-
         // GET: CoursesRegistration/Create
+        [Authorize(Roles = Roles.User)]
         public IActionResult Create()
         {
             ViewData["CourseCode"] = new SelectList(_context.Courses, "CourseCode", "CourseCode");
-            ViewData["UserName"] = new SelectList(_context.Users, "UserName", "UserName");
+            // ViewData["StudentId"] = new SelectList(_context.Users, "Id", "UserName");
+            ViewData["StudentId"] = new SelectList(_context.Users.Where(a => a.UserName == User.Identity.Name), "Id", "UserName");
             return View();
         }
 
@@ -37,10 +45,9 @@ namespace TaskingSystem.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = Roles.User)]
         public async Task<IActionResult> Create([Bind("StudentId,CourseCode")] StudentsCourses studentsCourses)
         {
-            studentsCourses.StudentId = await _context.Users.Where(a => a.UserName == studentsCourses.StudentId).Select(a => a.Id).SingleOrDefaultAsync();
-
             if (ModelState.IsValid)
             {
                 try
@@ -57,7 +64,7 @@ namespace TaskingSystem.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CourseCode"] = new SelectList(_context.Courses, "CourseCode", "CourseCode", studentsCourses.CourseCode);
-            ViewData["StudentId"] = new SelectList(_context.Users, "Id", "Id", studentsCourses.StudentId);
+            ViewData["StudentId"] = new SelectList(_context.Users.Where(a => a.UserName == User.Identity.Name), "Id", "UserName", studentsCourses.StudentId);
             return View(studentsCourses);
         }
 

@@ -3,20 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskingSystem.Data;
 
 #nullable disable
 
-namespace TaskingSystem.Data.Migrations
+namespace TaskingSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240205114200_ProfilePicAllowNull")]
-    partial class ProfilePicAllowNull
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -236,6 +233,104 @@ namespace TaskingSystem.Data.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
+            modelBuilder.Entity("TaskingSystem.Models.AssignedTask", b =>
+                {
+                    b.Property<int>("AssignedTaskId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AssignedTaskId"));
+
+                    b.Property<DateTime?>("AssignedTaskDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("AssignedTaskStudentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("TaskId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TaskURL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AssignedTaskId");
+
+                    b.HasIndex("AssignedTaskStudentId");
+
+                    b.HasIndex("TaskId");
+
+                    b.ToTable("AssignedTasks");
+                });
+
+            modelBuilder.Entity("TaskingSystem.Models.AssignmentHeadLine", b =>
+                {
+                    b.Property<int>("AssignmentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AssignmentId"));
+
+                    b.Property<DateTime?>("AssignmentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("AssignmentName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProfessorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("AssignmentId");
+
+                    b.HasIndex("CourseCode");
+
+                    b.HasIndex("ProfessorId");
+
+                    b.ToTable("AssignmentHeadLines");
+                });
+
+            modelBuilder.Entity("TaskingSystem.Models.Course", b =>
+                {
+                    b.Property<string>("CourseCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CourseName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProfessorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("CourseCode");
+
+                    b.HasIndex("ProfessorId");
+
+                    b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("TaskingSystem.Models.StudentsCourses", b =>
+                {
+                    b.Property<string>("StudentId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CourseCode")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("StudentId", "CourseCode");
+
+                    b.HasIndex("CourseCode");
+
+                    b.ToTable("StudentsCourses");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -285,6 +380,86 @@ namespace TaskingSystem.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TaskingSystem.Models.AssignedTask", b =>
+                {
+                    b.HasOne("TaskingSystem.Models.ApplicationUser", "AssignedTaskStudent")
+                        .WithMany()
+                        .HasForeignKey("AssignedTaskStudentId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("TaskingSystem.Models.AssignmentHeadLine", "AssignmentHeadLine")
+                        .WithMany()
+                        .HasForeignKey("TaskId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AssignedTaskStudent");
+
+                    b.Navigation("AssignmentHeadLine");
+                });
+
+            modelBuilder.Entity("TaskingSystem.Models.AssignmentHeadLine", b =>
+                {
+                    b.HasOne("TaskingSystem.Models.Course", "Course")
+                        .WithMany("AssignmentHeadLines")
+                        .HasForeignKey("CourseCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TaskingSystem.Models.ApplicationUser", "Professor")
+                        .WithMany()
+                        .HasForeignKey("ProfessorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Professor");
+                });
+
+            modelBuilder.Entity("TaskingSystem.Models.Course", b =>
+                {
+                    b.HasOne("TaskingSystem.Models.ApplicationUser", "Professor")
+                        .WithMany("Courses")
+                        .HasForeignKey("ProfessorId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Professor");
+                });
+
+            modelBuilder.Entity("TaskingSystem.Models.StudentsCourses", b =>
+                {
+                    b.HasOne("TaskingSystem.Models.Course", "Course")
+                        .WithMany("StudentsCourses")
+                        .HasForeignKey("CourseCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TaskingSystem.Models.ApplicationUser", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("TaskingSystem.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("TaskingSystem.Models.Course", b =>
+                {
+                    b.Navigation("AssignmentHeadLines");
+
+                    b.Navigation("StudentsCourses");
                 });
 #pragma warning restore 612, 618
         }

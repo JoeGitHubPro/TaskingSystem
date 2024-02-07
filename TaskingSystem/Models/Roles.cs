@@ -2,9 +2,9 @@
 {
     public class Roles
     {
-        public const string SuperAdmin = "SuperAdmin";
-        public const string Admin = "Admin";
-        public const string Manger = "Manger";
-        public const string User = "User";
+        public const string SuperAdmin = "SuperAdmin";  // Admin
+        public const string Admin = "Admin";    // IT
+        public const string Manger = "Manger";  // Prof.
+        public const string User = "User";      // student
     }
 }

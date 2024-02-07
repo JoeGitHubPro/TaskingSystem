@@ -19,31 +19,55 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-@*                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        @*                         <li class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li> *@
 
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="AssignedTasks" asp-action="Index">Assigned Tasks</a>
-                        </li>
 
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" asp-controller="#" asp-action="#" role="button" aria-haspopup="true" aria-expanded="false">Courses</a>
+                                <div class="dropdown-menu">
+                                    @if (User.IsInRole(Roles.Manger) || User.IsInRole(Roles.Admin) || User.IsInRole(Roles.SuperAdmin))
+                                    {
+                                        <a class="nav-link text-light" asp-controller="Courses" asp-action="Index">Courses</a>
+
+                                    }
+
+                                    <a class="nav-link text-light" asp-controller="CoursesRegistration" asp-action="Index">Courses Registration</a>
+
+                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="CoursesRegistration" asp-action="Index">Courses Registration</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" asp-controller="#" asp-action="#" role="button" aria-haspopup="true" aria-expanded="false">Assignments</a>
+                                <div class="dropdown-menu">
+
+                                    @if (User.IsInRole(Roles.User))
+                                    {
+                                        <a class="nav-link text-light" asp-controller="AssignedTasks" asp-action="Create">
+                                            Assign New Task
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a class="nav-link text-light" asp-controller="AssignedTasks" asp-action="Create">
+                                            Assigned Tasks
+                                        </a>
+                                    }
+
+
+                                    @if (User.IsInRole(Roles.Manger) || User.IsInRole(Roles.Admin) || User.IsInRole(Roles.SuperAdmin))
+                                    {
+
+                                        <a class="nav-link text-light" asp-controller="AssignmentHeadLines" asp-action="Index">Assignment Head Lines</a>
+
+                                    }
+                                </div>
                             </li>
-                            if (User.IsInRole(Roles.Manger) || User.IsInRole(Roles.Admin) || User.IsInRole(Roles.SuperAdmin))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" asp-area="" asp-controller="AssignmentHeadLines" asp-action="Index">Assignment Head Lines</a>
-                                </li>
-                            }
                             if (User.IsInRole(Roles.SuperAdmin))
                             {
 
@@ -72,7 +96,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - TaskingSystem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - TaskingSystem - <a class="btn btn-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

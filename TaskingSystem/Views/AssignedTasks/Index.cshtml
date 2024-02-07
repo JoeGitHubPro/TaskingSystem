@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TaskingSystem.Models.AssignedTask>
+
+@{
+    ViewData["Title"] = "Assignment Taskes";
+}
+
+<h1>Assignment Taskes</h1>
+
+<p>
+    <a class="btn btn-primary mt-4" asp-action="Create">Create New</a>
+</p>
+
+<partial name="_IndexForm" model="new AssignmentSearchViewModel()" />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Task
+            </th>
+            <th>
+              Assign Date
+            </th>
+            <th>
+                Assignment  Head Line
+            </th>
+            <th>
+                Student
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <a class="btn btn-link" href="~/AssignmentFiles/@item.TaskURL">
+                    @Html.DisplayFor(modelItem => item.TaskURL)
+                    </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedTaskDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignmentHeadLine.AssignmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignedTaskStudent.UserName)
+            </td>
+            <td>
+                    <a class="btn btn-primary btn-sm" asp-action="Edit" asp-route-id="@item.AssignedTaskId">Edit</a> |
+                    <a class="btn btn-dark btn-sm" asp-action="Details" asp-route-id="@item.AssignedTaskId">Details</a> |
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.AssignedTaskId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

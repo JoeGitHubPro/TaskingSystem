@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TaskingSystem.Data;
@@ -6,13 +8,17 @@ using TaskingSystem.Models;
 
 namespace TaskingSystem.Controllers
 {
+    [Authorize(Roles = $"{Roles.SuperAdmin},{Roles.Admin}")]
     public class CoursesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public CoursesController(ApplicationDbContext context)
+
+        public CoursesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Courses
@@ -42,10 +48,14 @@ namespace TaskingSystem.Controllers
         }
 
         // GET: Courses/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            // ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "Id");
-            ViewData["ProfessorUserName"] = new SelectList(_context.Users, "UserName", "UserName");
+            var usersWithPermission = await _userManager.GetUsersInRoleAsync(Roles.Manger);
+            // Then get a list of the ids of these users
+            var idsWithPermission = usersWithPermission.Select(u => u.Id);
+            // Now get the users in our database with the same ids
+            var users = await _context.Users.Where(u => idsWithPermission.Contains(u.Id)).ToListAsync();
+            ViewData["ProfessorId"] = new SelectList(users, "Id", "UserName");
             return View();
         }
 
@@ -56,16 +66,13 @@ namespace TaskingSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CourseCode,CourseName,ProfessorId")] Course course)
         {
-            string? ProfessorId = await _context.Users.Where(a => a.UserName == course.ProfessorId).Select(a => a.Id).SingleOrDefaultAsync();
-            course.ProfessorId = ProfessorId!;
-
             if (ModelState.IsValid)
             {
                 _context.Add(course);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "Id", course.ProfessorId);
+            ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "UserName", course.ProfessorId);
             return View(course);
         }
 
@@ -83,7 +90,7 @@ namespace TaskingSystem.Controllers
                 return NotFound();
             }
             //ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "Id", course.ProfessorId);
-            ViewData["ProfessorUserName"] = new SelectList(_context.Users, "UserName", "UserName");
+            ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "UserName");
 
             return View(course);
         }
@@ -99,9 +106,6 @@ namespace TaskingSystem.Controllers
             {
                 return NotFound();
             }
-
-            string? ProfessorId = await _context.Users.Where(a => a.UserName == course.ProfessorId).Select(a => a.Id).SingleOrDefaultAsync();
-            course.ProfessorId = ProfessorId!;
 
             if (ModelState.IsValid)
             {
@@ -123,7 +127,7 @@ namespace TaskingSystem.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "Id", course.ProfessorId);
+            ViewData["ProfessorId"] = new SelectList(_context.Users, "Id", "UserName", course.ProfessorId);
             return View(course);
         }
 

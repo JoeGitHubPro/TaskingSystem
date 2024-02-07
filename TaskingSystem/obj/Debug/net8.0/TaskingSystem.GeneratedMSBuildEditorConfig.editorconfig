@@ -186,6 +186,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Windows/Underway/Project/TaskingSystem/TaskingSystem/Views/AssignedTasks/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduZWRUYXNrc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Windows/Underway/Project/TaskingSystem/TaskingSystem/Views/AssignedTasks/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduZWRUYXNrc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Windows/Underway/Project/TaskingSystem/TaskingSystem/Views/AssignedTasks/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduZWRUYXNrc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Windows/Underway/Project/TaskingSystem/TaskingSystem/Views/AssignedTasks/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduZWRUYXNrc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Windows/Underway/Project/TaskingSystem/TaskingSystem/Views/AssignedTasks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduZWRUYXNrc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Windows/Underway/Project/TaskingSystem/TaskingSystem/Views/AssignedTasks/_IndexForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduZWRUYXNrc1xfSW5kZXhGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Windows/Underway/Project/TaskingSystem/TaskingSystem/Views/AssignmentHeadLines/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWdubWVudEhlYWRMaW5lc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

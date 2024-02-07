@@ -18,7 +18,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Professor)
             </th>
-            <th></th>
+            <th>
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -32,9 +34,29 @@
                     @Html.DisplayFor(modelItem => item.Professor.UserName)
                 </td>
                 <td>
+                    <a id="tasksButton" class="btn btn-warning btn-sm" asp-action="Index" asp-controller="AssignedTasks" asp-route-course="@item.CourseCode">Tasks</a>|
                     <a class="btn btn-primary btn-sm " asp-action="Edit" asp-route-id="@item.CourseCode">Edit</a> |
                     <a class="btn btn-dark btn-sm " asp-action="Details" asp-route-id="@item.CourseCode">Details</a> |
                     <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.CourseCode">Delete</a>
+
+                    <form id="tasksForm" action="/AssignedTasks/Index" method="get">
+                        <input type="hidden" name="course" id="courseInput" value="@item.CourseCode">
+                    </form>
+
+                    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                    <script>
+                        $(document).ready(function () {
+                            // Attach a click event to the button
+                            $("#tasksButton").on("click", function () {
+                                // Set the value of the hidden input field in the form
+                                $("#courseInput").val($(this).data("course"));
+
+                                // Submit the form
+                                $("#tasksForm").submit();
+                            });
+                        });
+                    </script>
+
                 </td>
             </tr>
         }
