@@ -10,7 +10,7 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
 </p>
-<p align="center"><img src="https://github.com/JoeGitHubPro/TaskingSystem/blob/master/TaskingSystem/wwwroot/images/Tasking.png" alt="project-image"></p>
+<p align="center"><img src="https://github.com/JoeGitHubPro/TaskingSystem/blob/master/TaskingSystem/wwwroot/images/Tasking-Production.png" alt="project-image"></p>
 
 <p id="description">MVC .Net 8 Core </p>
 
