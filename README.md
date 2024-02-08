@@ -1,6 +1,6 @@
 <h1 align="center" id="title">Tasking System</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/SQL%20Server-2019-yellow" />
   <img src="https://img.shields.io/badge/ASP.NetCore-8.0-%23790c91" />
   <a href="#" target="_blank">
@@ -10,7 +10,7 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
 </p>
-<p align="center"><img src="https://github.com/JoeGitHubPro/TaskingSystem/blob/master/TaskingSystem/wwwroot/images/Tasking.png" alt="project-image"></p>
+<p align="center"><img src="https://github.com/JoeGitHubPro/TaskingSystem/blob/master/TaskingSystem/wwwroot/images/Tasking-Production.png" alt="project-image"></p>
 
 <p id="description">MVC .Net 8 Core </p>
 
@@ -20,14 +20,17 @@
 
 Here're some of the project's best features:
 
-*   Auto Data Migrations
+*   Identity with Users and Roles management
+*   Authentication and Authorization with Secure Lockout
+*   Full Data Profile management
+*   Data Auto Migration With Default Settings
 
 <h2>🛠️ Installation Steps:</h2>
 
 <p>1. Install release</p>
 
 ```
-https://github.com/JoeGitHubPro/TaskingSystem/releases/tag/V1.0.0
+https://github.com/JoeGitHubPro/TaskingSystem/releases/tag/V2.0.0
 ```
 
 <p>2. Go Instruction on this release</p>
