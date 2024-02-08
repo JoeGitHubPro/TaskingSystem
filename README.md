@@ -1,4 +1,4 @@
-<h1 align="center" id="title">MVC Identity Application</h1>
+<h1 align="center" id="title">Tasking System</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/SQL%20Server-2019-yellow" />
@@ -12,7 +12,7 @@
 </p>
 <p align="center"><img src="https://github.com/JoeGitHubPro/TaskingSystem/blob/master/TaskingSystem/wwwroot/images/Tasking.png" alt="project-image"></p>
 
-<p id="description">MVC .Net identity application with registration and logins with profile pictures users and roles management email confirmation and forgot password restoration</p>
+<p id="description">MVC .Net 8 Core </p>
 
   
   
