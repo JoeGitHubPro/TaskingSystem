@@ -9,6 +9,110 @@
       "PackagePath": "staticwebassets\\StaticHTML\\MailTemplate.html"
     },
     {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (1).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (1).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (10).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (10).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (11).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (11).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (12).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (12).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (13).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (13).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (14).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (14).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (15).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (15).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (16).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (16).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (17).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (17).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (18).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (18).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (19).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (19).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (2).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (2).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (20).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (20).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (21).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (21).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (22).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (22).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (23).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (23).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (24).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (24).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (25).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (25).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (26).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (26).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (3).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (3).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (4).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (4).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (5).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (5).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (6).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (6).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (7).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (7).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (8).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (8).css"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min (9).css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min (9).css"
+    },
+    {
       "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
@@ -23,6 +127,10 @@
     {
       "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\Congratulations, Class of 2025!.png",
       "PackagePath": "staticwebassets\\images\\Congratulations, Class of 2025!.png"
+    },
+    {
+      "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\Tasking-Production.png",
+      "PackagePath": "staticwebassets\\images\\Tasking-Production.png"
     },
     {
       "Id": "E:\\Windows\\Underway\\Project\\TaskingSystem\\TaskingSystem\\wwwroot\\images\\Tasking.png",

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<TaskingSystem.Models.Theme>
+
+@{
+    ViewData["Title"] = "Themes";
+}
+
+<h1>Themes</h1>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group mt-2">  </div>
+
+        <form id="myForm" action="/Themes/Selected" method="post">
+            <select id="themeDropdown" name="ThemeId" class="form-control mt-4" asp-items="ViewBag.Themes"></select>
+            <input type="submit" value="Refresh" class="btn btn-primary mt-4">
+        </form>
+
+    </div>
+</div>
+
+<script>
+    // Automatically submit the form when an option is selected
+    document.getElementById('themeDropdown').addEventListener('change', function () {
+        document.getElementById('myForm').submit();
+    });
+</script>

@@ -331,6 +331,25 @@ namespace TaskingSystem.Migrations
                     b.ToTable("StudentsCourses");
                 });
 
+            modelBuilder.Entity("TaskingSystem.Models.Theme", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ThemeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("ThemeSelected")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Themes");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)

@@ -15,6 +15,7 @@ namespace TaskingSystem.Controllers
 
         public IActionResult Index()
         {
+            TempData["Theme"] = "bootstrap.min (1)";
             return View();
         }
 

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using TaskingSystem.Data;
+using TaskingSystem.Global;
 using TaskingSystem.Models;
 using TaskingSystem.Services;
 
@@ -52,8 +53,14 @@ namespace TaskingSystem
 
                 initialize.InitializeRoles().Wait();
                 initialize.InitializeUsers().Wait();
-            }
 
+                var selectedThemeName = context.Themes
+                            .Where(a => a.ThemeSelected)
+                            .Select(a => a.ThemeName)
+                            .SingleOrDefault();
+                ThemeGlobal themeGlobal = new ThemeGlobal(selectedThemeName);
+                themeGlobal.Dispose();
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

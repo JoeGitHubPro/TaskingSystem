@@ -11,6 +11,7 @@ namespace TaskingSystem.Data
         public DbSet<AssignmentHeadLine> AssignmentHeadLines { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<StudentsCourses> StudentsCourses { get; set; }
+        public DbSet<Theme> Themes { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

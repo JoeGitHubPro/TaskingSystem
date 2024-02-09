@@ -34,7 +34,7 @@
                     @Html.DisplayFor(modelItem => item.Professor.UserName)
                 </td>
                 <td>
-                    <a id="tasksButton" class="btn btn-warning btn-sm" asp-action="Index" asp-controller="AssignedTasks" asp-route-course="@item.CourseCode">Tasks</a>|
+                    <a id="tasksButton" class="btn btn-warning btn-sm" asp-action="Index" asp-controller="AssignedTasks" asp-route-course="@item.CourseCode">Tasks</a> |
                     <a class="btn btn-primary btn-sm " asp-action="Edit" asp-route-id="@item.CourseCode">Edit</a> |
                     <a class="btn btn-dark btn-sm " asp-action="Details" asp-route-id="@item.CourseCode">Details</a> |
                     <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.CourseCode">Delete</a>

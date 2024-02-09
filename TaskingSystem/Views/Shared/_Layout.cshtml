@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@using TaskingSystem.Global
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TaskingSystem</title>
-    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    
+    <link rel="stylesheet" href="~/css/@(ThemeGlobal.Name).css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TaskingSystem.styles.css" asp-append-version="true" />
 </head>
@@ -78,6 +80,10 @@
                                         <a class="nav-link text-light" asp-controller="Users" asp-action="Index">Manage Users</a>
                                     </div>
                                 </li>
+
+                                <a class="nav-link text-light" asp-controller="Themes" asp-action="Index">Theme</a>
+
+
                             }
                         }
 
