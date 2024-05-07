@@ -24,6 +24,7 @@ Here're some of the project's best features:
 *   Authentication and Authorization with Secure Lockout
 *   Full Data Profile management
 *   Data Auto Migration With Default Settings
+*   Rate limiting
 
 <h2>🛠️ Installation Steps:</h2>
 
