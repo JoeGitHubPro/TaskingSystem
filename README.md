@@ -20,6 +20,7 @@
 
 Here're some of the project's best features:
 
+*   Multiple Themes
 *   Identity with Users and Roles management
 *   Authentication and Authorization with Secure Lockout
 *   Full Data Profile management
